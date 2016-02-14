@@ -1,0 +1,37 @@
+body {
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  padding-top: 70px;
+}
+
+#container {
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 40px;
+  background-color: #fff;
+  width: 50%;
+  text-align: left;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+#register_button {
+  display: inline-block;
+  border-style: solid;
+  border-color: #990000;
+  padding: 10px;
+  color: #990000;
+  font-family: 'Lato', serif;
+  text-transform: uppercase;
+  text-decoration: none;
+}
