@@ -15,23 +15,25 @@ body {
   background-color: #fff;
   width: 50%;
   text-align: left;
+  font-family: 'Lato', sans-serif;
 }
 
-h1 {
+h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
 }
 
 p {
-  font-family: 'Lato', sans-serif;
 }
 
-#register_button {
+#register_button, input[type="submit"] {
   display: inline-block;
   border-style: solid;
   border-color: #990000;
   padding: 10px;
+  background-color: #fff;
   color: #990000;
   font-family: 'Lato', serif;
   text-transform: uppercase;
   text-decoration: none;
 }
+

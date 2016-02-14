@@ -1,0 +1,63 @@
+extends layout
+
+block content
+  center
+    h1 Anmälan
+
+  form(name="registration", method="post")
+    .form-group
+      label(for="first_name") Förnamn
+      input(type="text", name="first_name").form-control
+    .form-group
+      label(for="last_name") Efternamn
+      input(type="text", name="last_name").form-control
+    .form-group
+      label(for="email") E-postadress
+      input(type="text", name="email").form-control
+    .form-group
+      label(for="organisation") Organisation/post
+      input(type="text", name="organisation").form-control
+    h3 Solenn akt
+    .checkbox
+      label
+        input(type="checkbox", name="solennakt", value="true")
+        | Deltar i solenn akt
+    .checkbox
+      label
+        input(type="checkbox", name="greeting", value="true")
+        | Vill framföra hälsning
+    h3 Priskategori
+    .radio
+      label
+        input(type="radio", name="price", value="student")
+        | Studerande (60 €)
+    .radio
+      label
+        input(type="radio", name="price", value="other")
+        | Normalpris (80 €)
+    .radio
+      label
+        input(type="radio", name="price", value="supporter")
+        | Understödspris (150 €)
+    h3 Detaljer
+    .checkbox
+      label
+        input(type="checkbox", name="alcoholfree", value="true")
+        | Alkoholfri
+    .form-group
+      label(for="diet") Allergier/dieter
+      input(type="text", name="diet").form-control
+    .form-group
+      label(for="avec") Avec (obs: måste anmälas skilt!)
+      input(type="text", name="avec").form-control
+    h3 Sillfrukost
+    .checkbox
+      label
+        input(type="checkbox", name="sillis", value="true")
+        | Jag deltar i sillfrukosten (förköp: 10 €, vid dörren 12 €)
+    .form-group
+      label(for="misc") Övrigt
+      input(type="text", name="misc").form-control
+    div.actions
+      input(type="submit", value="Skicka")
+
