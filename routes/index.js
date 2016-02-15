@@ -117,7 +117,7 @@ router.post('/submit/', function(req, res, next) {
 router.get('/list/', function(req, res, next) {
     var settings = require('../settings.js');
     var db = pgp("postgres://" + db_user + ":" + db_password + "@" + db_host + "/" + db_name);
-    query = db.query("SELECT first_name, last_name, organisation FROM participants;")
+    query = db.query("SELECT first_name, last_name FROM participants;")
       .then(function (data) {
         res.render('list', { title: 'Deltagare', data: data });
       })
