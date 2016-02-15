@@ -4,7 +4,7 @@ block content
   center
     h1 Anmälan
 
-  form(name="registration", method="post")
+  form(action="/submit/", name="registration", method="post")
     .form-group
       label(for="first_name") Förnamn
       input(type="text", name="first_name").form-control
