@@ -50,7 +50,7 @@ router.post('/submit/', function(req, res, next) {
     if (req.body.price == "student") req.body.sum += 60;
     if (req.body.price == "normal") req.body.sum += 80;
     if (req.body.price == "supporter") req.body.sum += 150;
-    if (req.body.sillis) req.body.sum += 10;
+    if (req.body.sillis == "1") req.body.sum += 10;
 
     var settings = require('../settings.js');
     var db = pgp("postgres://" + db_user + ":" + db_password + "@" + db_host + "/" + db_name);
