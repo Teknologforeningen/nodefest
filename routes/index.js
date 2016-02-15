@@ -31,6 +31,11 @@ router.post('/submit/', function(req, res, next) {
   req.sanitizeBody('avec').escape();
   req.sanitizeBody('misc').escape();
 
+  if (req.body.solenn_akt != "1") req.body.solenn_akt = "0";
+  if (req.body.greeting != "1") req.body.greeting = "0";
+  if (req.body.alcoholfree != "1") req.body.alcoholfree = "0";
+  if (req.body.sillis != "1") req.body.sillis = "0";
+
   if (req.validationErrors()) {
     var err = new Error(req.validationErrors()[0].msg);
     res.status(400);
@@ -43,7 +48,7 @@ router.post('/submit/', function(req, res, next) {
     var settings = require('../settings.js');
     var db = pgp("postgres://" + db_user + ":" + db_password + "@" + db_host + "/" + db_name);
     
-    db.query("INSERT INTO Participants(first_name, last_name, organisation, greeting, email, diet, alcoholfree, sillis, solenn_akt, avec, misc, category) VALUES (${last_name}, ${organisation}, ${greeting}, ${email}, ${diet}, ${alcoholfree}, ${sillis}, ${solenn_akt}, ${avec}, ${misc}, ${price})", req.body)
+    db.query("INSERT INTO Participants(first_name, last_name, organisation, greeting, email, diet, alcoholfree, sillis, solenn_akt, avec, misc, category) VALUES (${first_name}, ${last_name}, ${organisation}, ${greeting}, ${email}, ${diet}, ${alcoholfree}, ${sillis}, ${solenn_akt}, ${avec}, ${misc}, ${price})", req.body)
         .then(function() {
           console.log("Added to the database");
           
