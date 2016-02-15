@@ -1,5 +1,6 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
+var pgp = require('pg-promise')(/*options*/);
 var router = express.Router();
 
 /* GET home page. */
@@ -31,22 +32,71 @@ router.post('/submit/', function(req, res, next) {
     var err = new Error(req.validationErrors()[0].msg);
     res.status(400);
     res.render('error', { error: err });
+  } else if (['free', 'student', 'normal', 'supporter'].indexOf(req.body.price) < 0) {
+    var err = new Error("Du har inte valt priskategori!");
+    res.status(400);
+    res.render('error', { error: err });
   } else {
-    var mailOptions = {
-      from: 'TF144 <arsfest@teknolog.fi>',
-      to: req.body.email,
-      subject: 'Bekräftelse',
-      text: 'Din anmälan har mottagits' + req.body.first_name,
-    };
+    var settings = require('../settings.js');
+    var db = pgp("postgres://" + db_user + ":" + db_password + "@" + db_host + "/" + db_name);
+    
+    db.query("INSERT INTO Participants(first_name, last_name, organisation, greeting, email, diet, alcoholfree, sillis, solenn_akt, avec, misc, category) VALUES ('" + req.body.first_name + "', '"
+              + req.body.last_name + "', '"
+              + req.body.organisation + "', "
+              + (req.body.greeting ? "TRUE" : "FALSE") + ", '" 
+              + req.body.email + "', '" 
+              + req.body.diet + "', " 
+              + (req.body.alcoholfree ? "TRUE" : "FALSE") + ", " 
+              + (req.body.sillis ? "TRUE" : "FALSE") + ", " 
+              + (req.body.solenn_akt ? "TRUE" : "FALSE") + ", '" 
+              + req.body.avec + "', '" 
+              + req.body.misc + "', '" 
+              + req.body.price + "');")
+        .then(function() {
+          console.log("Added to the database");
+          
+          var mailOptions = {
+            from: 'TF144 <arsfest@teknolog.fi>',
+            to: req.body.email,
+            subject: 'Bekräftelse',
+            text: 'Hej,\n\nDin anmälan till Teknologföreningens årsfest har mottagits. Vidare instruktioner angående betalning kommer att skickas senare.\n\nVälkommen med på festen!',
+          };
 
-    transporter.sendMail(mailOptions, function(error, info) {
-      if (error) {
-        res.send(error);
-      } else {
-        console.log('Message sent: ' + info.response);
-      }
-    });
-    res.render('submit', { title: 'Bekräftelse' });
+          transporter.sendMail(mailOptions, function(error, info) {
+            if (error) {
+              res.send(error);
+            } else {
+              console.log('Message sent: ' + info.response);
+            }
+          });
+          
+          // Informational message
+          var infoMailOptions = {
+            from: 'TF144 <arsfest@teknolog.fi>',
+            to: 'oleg.stikhin@aalto.fi',
+            subject: 'Ny anmälning',
+            text: JSON.stringify(req.body),
+          };
+
+          transporter.sendMail(infoMailOptions, function(error, info) {
+            if (error) {
+              res.send(error);
+            } else {
+              console.log('Informational message sent: ' + info.response);
+            }
+          });
+          
+          res.render('submit', { title: 'Bekräftelse' });
+        })
+        
+        .catch(function(error) {
+          console.log("Database error: " + error);
+          var err = new Error(error);
+          res.status(500);
+          res.render('error', { error: err });
+        });
+    
+    
   }
 });
 

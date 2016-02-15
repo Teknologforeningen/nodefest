@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
+var pgp = require('pg-promise')(/*options*/);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

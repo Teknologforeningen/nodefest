@@ -20,11 +20,11 @@ block content
     h3 Solenn akt
     .checkbox
       label
-        input(type="checkbox", name="solennakt", value="true")
+        input(type="checkbox", name="solenn_akt", value="1")
         | Deltar i solenn akt
     .checkbox
       label
-        input(type="checkbox", name="greeting", value="true")
+        input(type="checkbox", name="greeting", value="1")
         | Vill framföra hälsning
     h3 Priskategori
     .radio
@@ -33,8 +33,12 @@ block content
         | Studerande (60 €)
     .radio
       label
-        input(type="radio", name="price", value="other")
+        input(type="radio", name="price", value="normal")
         | Normalpris (80 €)
+    .radio
+      label
+        input(type="radio", name="price", value="free")
+        | Gratisplats (0 €)
     .radio
       label
         input(type="radio", name="price", value="supporter")
@@ -42,7 +46,7 @@ block content
     h3 Detaljer
     .checkbox
       label
-        input(type="checkbox", name="alcoholfree", value="true")
+        input(type="checkbox", name="alcoholfree", value="1")
         | Alkoholfri
     .form-group
       label(for="diet") Allergier/dieter
@@ -53,7 +57,7 @@ block content
     h3 Sillfrukost
     .checkbox
       label
-        input(type="checkbox", name="sillis", value="true")
+        input(type="checkbox", name="sillis", value="1")
         | Jag deltar i sillfrukosten (förköp: 10 €, vid dörren 12 €)
     .form-group
       label(for="misc") Övrigt
