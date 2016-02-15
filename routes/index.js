@@ -1,6 +1,7 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
 var pgp = require('pg-promise')(/*options*/);
+var refnum = require('fin-id').refnum;
 var router = express.Router();
 
 /* GET home page. */
@@ -45,10 +46,19 @@ router.post('/submit/', function(req, res, next) {
     res.status(400);
     res.render('error', { error: err });
   } else {
+    req.body.sum = 0;
+    if (req.body.price == "student") req.body.sum += 60;
+    if (req.body.price == "normal") req.body.sum += 80;
+    if (req.body.price == "supporter") req.body.sum += 150;
+    if (req.body.sillis) req.body.sum += 10;
+
     var settings = require('../settings.js');
     var db = pgp("postgres://" + db_user + ":" + db_password + "@" + db_host + "/" + db_name);
     
-    db.query("INSERT INTO Participants(first_name, last_name, organisation, greeting, email, diet, alcoholfree, sillis, solenn_akt, avec, misc, category) VALUES (${first_name}, ${last_name}, ${organisation}, ${greeting}, ${email}, ${diet}, ${alcoholfree}, ${sillis}, ${solenn_akt}, ${avec}, ${misc}, ${price})", req.body)
+    db.query("SELECT COUNT(id) FROM Participants;")
+      .then(function(data) {
+        req.body.reference = refnum.create(144000 + +data[0].count);
+        db.query("INSERT INTO Participants(first_name, last_name, organisation, greeting, email, diet, alcoholfree, sillis, solenn_akt, avec, misc, reference, sum, category) VALUES (${first_name}, ${last_name}, ${organisation}, ${greeting}, ${email}, ${diet}, ${alcoholfree}, ${sillis}, ${solenn_akt}, ${avec}, ${misc}, ${reference}, ${sum}, ${price})", req.body)
         .then(function() {
           console.log("Added to the database");
           
@@ -56,7 +66,7 @@ router.post('/submit/', function(req, res, next) {
             from: 'TF144 <arsfest@teknolog.fi>',
             to: req.body.email,
             subject: 'Bekräftelse',
-            text: 'Hej,\n\nDin anmälan till Teknologföreningens årsfest har mottagits. Vidare instruktioner angående betalning kommer att skickas senare.\n\nVälkommen med på festen!',
+            text: 'Hej,\n\nDin anmälan till Teknologföreningens årsfest har mottagits.\n\nSumma: ' + req.body.sum + '\nReferensnummer: ' + req.body.reference + '\nKonto: FI13 1309 3000 0570 75\nBIC-kod: NDEAFIHH\nMottagare: Teknologföreningen\nBetalningstid: 14 dagar från mottagande av detta meddelande.\n\nI fall du har frågor kan du kontakta oss genom att svara på detta meddelande.\n\nVälkommen med på festen!',
           };
 
           transporter.sendMail(mailOptions, function(error, info) {
@@ -92,8 +102,13 @@ router.post('/submit/', function(req, res, next) {
           res.status(500);
           res.render('error', { error: err });
         });
-    
-    
+      })
+      .catch(function(error) {
+        console.log("Database error: " + error);
+        var err = new Error(error);
+        res.status(500);
+        res.render('error', { error: err });
+      });
   }
 });
 
