@@ -43,7 +43,7 @@ router.post('/submit/', function(req, res, next) {
     var settings = require('../settings.js');
     var db = pgp("postgres://" + db_user + ":" + db_password + "@" + db_host + "/" + db_name);
     
-    db.query("INSERT INTO Participants(first_name, last_name, organisation, greeting, email, diet, alcoholfree, sillis, solenn_akt, avec, misc, category) VALUES (${last_name}, ${organization}, ${greeting}, ${email}, ${diet}, ${alcoholfree}, ${sillis}, ${solenn_akt}, ${avec}, ${misc}, ${price})", req.body)
+    db.query("INSERT INTO Participants(first_name, last_name, organization, greeting, email, diet, alcoholfree, sillis, solenn_akt, avec, misc, category) VALUES (${last_name}, ${organization}, ${greeting}, ${email}, ${diet}, ${alcoholfree}, ${sillis}, ${solenn_akt}, ${avec}, ${misc}, ${price})", req.body)
         .then(function() {
           console.log("Added to the database");
           
