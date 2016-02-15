@@ -5,9 +5,8 @@ block content
     h1 Deltagare
   p
     ol
-      data
-        each participant in data
-          li= participant.first_name + " " + participant.last_name
-            if participant.organisation
-              |  (#{participant.organisation})
+      each participant in data
+        li= participant.first_name + " " + participant.last_name
+          if participant.organisation
+            |  (#{participant.organisation})
 
