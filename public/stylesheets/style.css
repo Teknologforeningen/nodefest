@@ -18,22 +18,37 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
+#schedule {
+  margin-bottom: 30px;
 }
 
-p {
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: #ae2452;
+}
+
+h1, h2 {
+  padding-bottom: 20px;
+}
+
+a, input[type="submit"] {
+  font-weight: bold;
+  color: #ae2452;
 }
 
 #register_button, input[type="submit"] {
   display: inline-block;
   border-style: solid;
-  border-color: #990000;
+  border-color: #ae2452;
   padding: 10px;
   background-color: #fff;
-  color: #990000;
+  color: #ae2452;
   font-family: 'Lato', serif;
   text-transform: uppercase;
   text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
+#register_button + #register_button {
+  margin-left: 5px;

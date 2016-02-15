@@ -8,9 +8,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Teknologföreningens årsfest' });
 });
 
+
+/* GET register form */
 router.get('/register/', function(req, res, next) {
   res.render('register', { title: 'Anmälan' });
 });
+
 
 /* POST submit form */
 router.post('/submit/', function(req, res, next) {
@@ -99,5 +102,23 @@ router.post('/submit/', function(req, res, next) {
     
   }
 });
+
+
+/* GET the participants' list */
+router.get('/list/', function(req, res, next) {
+    var settings = require('../settings.js');
+    var db = pgp("postgres://" + db_user + ":" + db_password + "@" + db_host + "/" + db_name);
+    query = db.query("SELECT first_name, last_name, organisation FROM participants;")
+      .then(function (data) {
+        res.render('list', { title: 'Deltagare', data: data });
+      })
+      .catch(function (error) {
+        console.log("Database error: " + error);
+        var err = new Error(error);
+        res.status(500);
+        res.render('error', { error: err });
+      });
+});
+
 
 module.exports = router;
