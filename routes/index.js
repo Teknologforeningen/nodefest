@@ -30,6 +30,7 @@ router.post('/submit/', function(req, res, next) {
   req.sanitizeBody('organisation').escape();
   req.sanitizeBody('diet').escape();
   req.sanitizeBody('avec').escape();
+  req.sanitizeBody('price').escape();
   req.sanitizeBody('misc').escape();
 
   if (req.body.solenn_akt != "1") req.body.solenn_akt = "0";
