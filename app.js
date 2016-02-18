@@ -8,9 +8,11 @@ var expressValidator = require('express-validator');
 var pgp = require('pg-promise')(/*options*/);
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var settings = require('./settings')
 
 var app = express();
+
+db = pgp("postgres://" + settings.db_user + ":" + settings.db_password + "@" + settings.db_host + "/" + settings.db_name);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,7 +28,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
