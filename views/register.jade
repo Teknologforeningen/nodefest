@@ -7,13 +7,13 @@ block content
   form(action="/submit/", name="registration", method="post")
     .form-group
       label(for="first_name") Förnamn
-      input(type="text", name="first_name").form-control
+      input(type="text", name="first_name", required).form-control
     .form-group
       label(for="last_name") Efternamn
-      input(type="text", name="last_name").form-control
+      input(type="text", name="last_name", required).form-control
     .form-group
       label(for="email") E-postadress
-      input(type="text", name="email").form-control
+      input(type="email", name="email", required).form-control
     .form-group
       label(for="organisation") Organisation/post
       input(type="text", name="organisation").form-control
@@ -29,7 +29,7 @@ block content
     h3 Priskategori
     .radio
       label
-        input(type="radio", name="price", value="student")
+        input(type="radio", name="price", value="student", checked)
         | TF:s ordinarie medlem (60 €)
     .radio
       label
