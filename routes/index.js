@@ -1,6 +1,7 @@
 var express = require('express');
 var register = require('../modules/register');
 var list = require('../modules/list');
+var listExport = require('../modules/export');
 var router = express.Router();
 
 /* GET home page. */
@@ -28,5 +29,10 @@ router.get('/list/', function(req, res, next) {
   list.getList(res);
 });
 
+
+/* GET the participants' list as JSON */
+router.get('/export/:code', function(req, res, next) {
+  listExport.getList(req, res);  
+});
 
 module.exports = router;
