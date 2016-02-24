@@ -5,17 +5,27 @@ body {
   background-position: center center;
   text-align: center;
   padding-top: 70px;
+  font-family: 'Lato', sans-serif;
 }
 
 #container {
   margin: auto;
   margin-top: 100px;
-  margin-bottom: 100px;
   padding: 40px;
   background-color: #fff;
-  width: 50%;
   text-align: left;
-  font-family: 'Lato', sans-serif;
+}
+
+@media (min-width: 900px) {
+  #container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 899px) {
+  #container {
+    width: 90%;
+  }
 }
 
 #schedule {
@@ -52,3 +62,22 @@ a, input[type="submit"] {
 
 #register_button + #register_button {
   margin-left: 5px;
+}
+
+#ad {
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+#ad img {
+  margin: 15px 30px 40px 30px;
+}
+
+#ad_header {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+}
