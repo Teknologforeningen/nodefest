@@ -6,7 +6,7 @@ exports.getList = function(req, res) {
     query = dbModules.queryDatabase("SELECT * FROM participants;")
       .then(function (data) {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(data));
+        res.send(JSON.stringify(data, null, 2));
       })
       .catch(function (error) {
         console.log("Database error: " + error);
