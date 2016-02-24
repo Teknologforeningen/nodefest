@@ -31,7 +31,7 @@ router.get('/list/', function(req, res, next) {
 
 
 /* GET the participants' list as JSON */
-router.get('/export/:code', function(req, res, next) {
+router.get('/export/json/:code', function(req, res, next) {
   listExport.getList(req, res);  
 });
 
