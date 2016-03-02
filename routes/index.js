@@ -12,7 +12,11 @@ router.get('/', function(req, res, next) {
 
 /* GET register form */
 router.get('/register/', function(req, res, next) {
-  res.render('register', { title: 'Anmälan' });
+  if (Date.now() < 1457301600000) {
+    res.render('register', { title: 'Anmälan' });
+  } else {
+    res.render('closed', { title: 'Anmälningen är stängd' });
+  }
 });
 
 
