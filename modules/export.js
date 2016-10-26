@@ -1,4 +1,4 @@
-var settings = require('../settings');
+var settings = require('../settings.json');
 var dbModules = require('./db');
 
 exports.getList = function(req, res) {

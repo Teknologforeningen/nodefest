@@ -8,7 +8,7 @@ var expressValidator = require('express-validator');
 var pgp = require('pg-promise')(/*options*/);
 
 var routes = require('./routes/index');
-var settings = require('./settings')
+var settings = require('./settings.json')
 
 var app = express();
 
