@@ -1,4 +1,4 @@
-extends layout
+﻿extends layout
 
 block content
   center
@@ -30,11 +30,11 @@ block content
     .radio
       label
         input(type="radio", name="price", value="student", checked)
-        | TF:s ordinarie medlem (60 €)
+        | TF:s ordinarie medlem (75 €)
     .radio
       label
         input(type="radio", name="price", value="normal")
-        | Normalpris (80 €)
+        | Normalpris (85 €)
     .radio
       label
         input(type="radio", name="price", value="free")
@@ -64,4 +64,6 @@ block content
       input(type="text", name="misc").form-control
     div.actions
       input(type="submit", value="Skicka")
+    p
+      a(href="/") Tillbaka till startsidan
 

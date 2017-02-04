@@ -1,4 +1,4 @@
-var nodemailer = require('nodemailer');
+﻿var nodemailer = require('nodemailer');
 var refnum = require('fin-id').refnum;
 var messages = require('./messages');
 var dbModules = require('./db');
@@ -36,14 +36,14 @@ function checkboxInsert(req) {
 
 function countSum(req) {
   req.body.sum = 0;
-  if (req.body.price === "student") req.body.sum += 60;
-  if (req.body.price === "normal") req.body.sum += 80;
+  if (req.body.price === "student") req.body.sum += 75;
+  if (req.body.price === "normal") req.body.sum += 85;
   if (req.body.price === "supporter") req.body.sum += 150;
   if (req.body.sillis === "1") req.body.sum += 10;
 }
 
 function countReferenceNumber(req, count) {
-  req.body.reference = refnum.create(144000 + +count);
+  req.body.reference = refnum.create(145000 + +count);
 }
 
 exports.saveParticipant = function(req, res) {
