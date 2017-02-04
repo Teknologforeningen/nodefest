@@ -1,4 +1,4 @@
-var express = require('express');
+﻿var express = require('express');
 var register = require('../modules/register');
 var list = require('../modules/list');
 var listExport = require('../modules/export');
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 /* GET register form */
 router.get('/register/', function(req, res, next) {
-  if (Date.now() < 1457172000000) {
+  if (Date.now() < 1489362900000) {
     res.render('register', { title: 'Anmälan' });
   } else {
     res.render('closed', { title: 'Anmälningen är stängd' });
