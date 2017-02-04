@@ -12,7 +12,9 @@ router.get('/', function(req, res, next) {
 
 /* GET register form */
 router.get('/register/', function(req, res, next) {
-  if (Date.now() < 1489362900000) {
+  if (Date.now() < 1487073600000) {
+    res.render('notopen', { title: 'Anmälningen är stängd' });
+  } else if (Date.now() < 1489362900000) {
     res.render('register', { title: 'Anmälan' });
   } else {
     res.render('closed', { title: 'Anmälningen är stängd' });
