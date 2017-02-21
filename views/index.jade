@@ -1,8 +1,8 @@
 ﻿extends layout
 
 block content
-  center
-    h1 VÄLKOMMEN!
+  .center_text
+    h1 Välkommen!
   p Teknologföreningen firar sin 145:e årsfest lördagen den 25 mars 2017 och vi önskar Er hjärtligt välkommen att fira den med oss.
 
   p Festligheterna inleds med solenn akt i Design Factory på Aalto-universitetets campus i Otnäs där det finns möjlighet att framföra hälsningar till jubilaren.
@@ -15,42 +15,42 @@ block content
 
   p Anmälan öppnar den 6 februari för inbjudna gäster och den 20 februari för övriga. Anmälan stänger den 12 mars.
 
-  center
-    a#register_button(href='/register/') Anmälan
-    a#register_button(href='/list/') Deltagare
+  .center_text
+    a.register_button(href='/register/') Anmälan
+    a.register_button(href='/list/') Deltagare
 
-  h2 TIDTABELL
-    h4 25 mars 2017
-    #schedule
-      .row
-        .col-md-4 Solenn akt
-        .col-md-2 16.00
-        .col-md-6
-          | Design Factory
-          br
-          | Betongblandargränden 5
-      .row
-        .col-md-4 Cocktail
-        .col-md-2 17.30
-        .col-md-6
-          | Urdsgjallar
-          br
-          | Otsvängen 22
-      .row
-        .col-md-4 Bankett
-        .col-md-2 19.00
-        .col-md-6
-          | Urdsgjallar
-          br
-          | Otsvängen 22
-      h4 26 mars 2017
-      .row
-        .col-md-4 Sillfrukost
-        .col-md-2 12.00
-        .col-md-6
-          | Urdsgjallar
-          br
-          | Otsvängen 22
+  h2 Tidtabell
+  h4 25 mars 2017
+  #schedule
+    .row
+      .col-md-4 Solenn akt
+      .col-md-2 16.00
+      .col-md-6
+        | Design Factory
+        br
+        | Betongblandargränden 5
+    .row
+      .col-md-4 Cocktail
+      .col-md-2 17.30
+      .col-md-6
+        | Urdsgjallar
+        br
+        | Otsvängen 22
+    .row
+      .col-md-4 Bankett
+      .col-md-2 19.00
+      .col-md-6
+        | Urdsgjallar
+        br
+        | Otsvängen 22
+    h4 26 mars 2017
+    .row
+      .col-md-4 Sillfrukost
+      .col-md-2 12.00
+      .col-md-6
+        | Urdsgjallar
+        br
+        | Otsvängen 22
   #div
     | Vid frågor, kontakta årsfestmarskalkerna på 
     a(href='mailto:arsfest@teknolog.fi') arsfest@teknolog.fi
