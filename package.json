@@ -12,10 +12,10 @@
     "express": "~4.13.1",
     "express-validator": "^2.19.1",
     "fin-id": "^0.1.4",
-    "jade": "~1.11.0",
     "morgan": "~1.6.1",
     "nodemailer": "^2.1.0",
     "pg-promise": "^3.1.7",
+    "pug": "^2.0.0-beta6",
     "serve-favicon": "~2.3.0"
   }
 }
