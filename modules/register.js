@@ -36,21 +36,22 @@ function checkboxInsert(req) {
 
 function countSum(req) {
   req.body.sum = 0;
-  if (req.body.price === "student") req.body.sum += 75;
+  if (req.body.price === "student") req.body.sum += 70;
   if (req.body.price === "normal") req.body.sum += 85;
   if (req.body.price === "supporter") req.body.sum += 150;
   if (req.body.sillis === "1") req.body.sum += 10;
 }
 
 function countReferenceNumber(req, count) {
-  req.body.reference = refnum.create(145000 + +count);
+  req.body.reference = refnum.create(146000 + +count);
 }
 
 exports.saveParticipant = function(req, res) {
   checkboxInsert(req);
   countSum(req);
 
-  var transporter = nodemailer.createTransport('smtp://smtp.ayy.fi');
+  //var transporter = nodemailer.createTransport('smtp://smtp.ayy.fi');
+  var transporter = nodemailer.createTransport('smtp://localhost');
 
   dbModules.queryDatabase("SELECT COUNT(id) FROM Participants;")
     .then(function(data) {
@@ -64,7 +65,7 @@ exports.saveParticipant = function(req, res) {
         transporter.sendMail(messages.infoMessage(req), function(error, info) {
           if (error) res.send(error);
         });
-          
+
         res.render('submit', { title: 'Bekräftelse' });
       })
       .catch(function(error) {
