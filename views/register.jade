@@ -15,7 +15,7 @@ block content
       label(for="email") E-postadress
       input(type="email", name="email", required).form-control
     .form-group
-      label(for="organisation") Organisation/post
+      label(for="organisation") Inbjuden som: (endast för inbjudna gäster)
       input(type="text", name="organisation").form-control
     h3 Solenn akt
     .checkbox
@@ -30,11 +30,11 @@ block content
     .radio
       label
         input(type="radio", name="price", value="student", checked)
-        | TF:s ordinarie medlem (75 €)
+        | Studerande (70 €)
     .radio
       label
         input(type="radio", name="price", value="normal")
-        | Normalpris (85 €)
+        | Icke-studerande (85 €)
     .radio
       label
         input(type="radio", name="price", value="free")
@@ -66,4 +66,3 @@ block content
       input(type="submit", value="Skicka")
     p
       a(href="/") Tillbaka till startsidan
-

@@ -8,7 +8,7 @@
   src: url(../images/CaslonRoman.ttf);
 }
 body {
-  background-image: url("../images/tf145web_MORKAREbg.jpg");
+  background-image: url("../images/tf146web_bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -18,17 +18,19 @@ body {
   font-size: 13pt;
 }
 .logo {
+  /* width: 300px;
+  height: 375px; */
   width: 300px;
-  height: 375px;
+  height: 464px;
   margin: auto;
   display:inline-block;
   background-size: cover;
   background-position: center center;
-  background-image: url(../images/logoSLOCKNAD_web.png);
+  background-image: url(../images/clown-1.png);
 }
 
 .logo:hover {
-  background-image: url(../images/logoPA_web.png);
+  background-image: url(../images/clown-2.png);
 }
 
 
@@ -37,7 +39,8 @@ body {
   margin: auto;
   margin-top: 70px;
   padding: 45px;
-  background-color: #a5a38b;
+  /*background-color: #a5a38b;*/
+  background-color: #e8d6bd;
   text-align: left;
 }
 
