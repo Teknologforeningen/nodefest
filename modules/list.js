@@ -1,7 +1,7 @@
 var dbModules = require('./db');
 
 exports.getList = function(res) {
-  query = dbModules.queryDatabase("SELECT first_name, last_name FROM participants WHERE cancelled='false' ORDER BY id;")
+  query = dbModules.queryDatabase("SELECT first_name, last_name FROM participants WHERE cancelled='false' AND timestamp>'2018-02-12 12:00:00' ORDER BY id;")
     .then(function (data) {
       res.render('list', { title: 'Deltagare', data: data });
     })

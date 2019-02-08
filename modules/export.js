@@ -3,7 +3,7 @@ var dbModules = require('./db');
 
 exports.getList = function(req, res) {
   if (req.params.code === settings.code) {
-    query = dbModules.queryDatabase("SELECT * FROM participants;")
+    query = dbModules.queryDatabase("SELECT * FROM participants WHERE timestamp>'2018-02-12 12:00:00' order by id;")
       .then(function (data) {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(data, null, 2));
