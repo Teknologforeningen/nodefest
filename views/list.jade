@@ -6,6 +6,11 @@ block content
   p
     ol
       each participant in data
-        li= participant.first_name + " " + participant.last_name
+        if participant.reserve_list
+          li= participant.first_name + " " + participant.last_name + " "
+            span(style="font-style: italic;")
+              | (reservplats)
+        else
+          li= participant.first_name + " " + participant.last_name
   p
     a(href="/") Tillbaka till startsidan

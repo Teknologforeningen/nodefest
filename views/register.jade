@@ -4,6 +4,10 @@ block content
   .center_text
     h1 Anmälan
 
+  if num_participants>=234
+    div(style="background-color: #e1c2fe; border: 1px solid; padding: 6px; font-size: 1.2em;")
+      | Alla platser till årsfesten är tyvärr fyllda. Du kan fortfarande anmäla dig till reservlistan nedan. Vi kontaktar dig separat ifall lediga platser frigörs till festen.
+
   form(action="/submit/", name="registration", method="post")
     .form-group
       label(for="first_name") Förnamn
@@ -14,8 +18,18 @@ block content
     .form-group
       label(for="email") E-postadress
       input(type="email", name="email", required).form-control
+
+    .radio
+      label
+        input(type="radio" name="inbjuden" value="inbjuden" checked)
+        | Inbjuden gäst/avec
+    .radio
+      label
+        input(type="radio" name="inbjuden" value="tfmedlem")
+        | Ordinarie medlem/avec
+
     .form-group
-      label(for="organisation") Inbjuden som: (endast för inbjudna gäster)
+      label(for="organisation") Post/organisation: (endast för inbjudna gäster)
       input(type="text", name="organisation").form-control
     h3 Solenn akt
     .checkbox
@@ -29,12 +43,16 @@ block content
     h3 Priskategori
     .radio
       label
-        input(type="radio", name="price", value="student", checked)
-        | Studerande (70 €)
+        input(type="radio", name="price", value="student-tf", checked)
+        | Studerande TF (75 €)
+    .radio
+      label
+        input(type="radio", name="price", value="student-other")
+        | Studerande övriga (80 €)
     .radio
       label
         input(type="radio", name="price", value="normal")
-        | Icke-studerande (85 €)
+        | Icke-studerande (90 €)
     .radio
       label
         input(type="radio", name="price", value="free")
@@ -43,6 +61,14 @@ block content
       label
         input(type="radio", name="price", value="supporter")
         | Understödspris (150 €)
+    h3 Donation till John Nurminens stiftelse
+    .radio
+      label
+        select(name="donation")
+          option(value=0, selected) 0 €
+          option(value=5) 5 €
+          option(value=10) 10 €
+          option(value=15) 15 €
     h3 Detaljer
     .checkbox
       label
@@ -60,8 +86,12 @@ block content
         input(type="checkbox", name="sillis", value="1")
         | Jag deltar i sillfrukosten (förköp: 10 €, vid dörren 12 €)
     .form-group
-      label(for="misc") Övrigt
+      label(for="misc") Övrigt (t.ex. önskemål om bordssällskap)
       input(type="text", name="misc").form-control
+    .checkbox
+      label
+        input(type="checkbox", name="gdpr", value="1" required)
+        | Jag godkänner att mina uppgifter sparas hos TF fram till och med årsfesten och får användas av arrangörerna. Dessutom godkänner jag att mitt namn får publiceras på listan över anmälda till festen.
     div.actions
       input(type="submit", value="Skicka")
     p
