@@ -15,9 +15,9 @@ router.get('/', function(req, res, next) {
 
 /* GET register form */
 router.get('/register/', function(req, res, next) {
-  if (Date.now() < 1580753744699) {
+  if (Date.now() < 1581847200000) {
     res.render('notopen', { title: 'Anmälningen är stängd' });
-  } else if (Date.now() < 1590863744699) {
+  } else if (Date.now() < 1583532000000) {
     participants_query = dbModules.queryDatabase("SELECT first_name, last_name FROM participants WHERE cancelled='false' AND timestamp>'2019-02-01 12:00:00' ORDER BY id;")
     .then(function (data) {
       res.render('register', { title: 'Anmälan', num_participants: data.length });
