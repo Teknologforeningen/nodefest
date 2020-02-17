@@ -1,3 +1,17 @@
+@import url("https://p.typekit.net/p.css?s=1&k=zfu3ehj&ht=tk&f=6152.42288&a=11440917&app=typekit&e=css");
+
+@font-face {
+font-family:"de-walpergens-pica";
+src:url("https://use.typekit.net/af/af3beb/0000000000000000000124f1/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/af3beb/0000000000000000000124f1/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/af3beb/0000000000000000000124f1/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"pulpo-rust-75";
+src:url("https://use.typekit.net/af/48eda5/00000000000000003b9b32a8/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/48eda5/00000000000000003b9b32a8/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/48eda5/00000000000000003b9b32a8/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;
+}
+
 @font-face {
   font-family: "Clarendon";
   src: url(../images/ClarendonLTStd-Light.ttf);
@@ -8,39 +22,44 @@
   src: url(../images/CaslonRoman.ttf);
 }
 body {
-  background-image: url("../images/tf146web_bg.jpg");
+  background-image: url("../images/Bakgrund.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   text-align: center;
   padding-top: 70px;
-  font-family: 'Caslon', 'Lato', sans-serif;
+  font-family: 'de-walpergens-pica', 'Lato', sans-serif;
   font-size: 13pt;
+  color: #ffffff;
 }
 .logo {
   /* width: 300px;
   height: 375px; */
-  width: 300px;
-  height: 464px;
+  width: 450px;
+  height: 500px;
   margin: auto;
   display:inline-block;
+  background-image: url(../images/ubat.png);
   background-size: cover;
   background-position: center center;
-  background-image: url(../images/clown-1.png);
+  transition: transform 2.0s ease-in-out 0s;
 }
 
 .logo:hover {
-  background-image: url(../images/clown-2.png);
+  /*background-image: url(../images/ubat.png); */
+  -webkit-transform: rotate(10deg);
+  transform: rotate(7deg);
+  transition: all 2.0s ease-in-out 0s;
 }
-
-
 
 #container {
   margin: auto;
-  margin-top: 70px;
+  margin-top: 50px;
   padding: 45px;
   /*background-color: #a5a38b;*/
-  background-color: #e8d6bd;
+  /* background-color: #e8d6bd; */
+  /*background-color: #ede4f0; */
+  background-color: rgba(169, 169, 169, 0.65);
   text-align: left;
 }
 
@@ -58,9 +77,9 @@ body {
 
 #schedule {
   margin-bottom: 30px;
-  font-family: 'Caslon', sans-serif;
+  font-family: 'de-walpergens-pica', sans-serif;
   font-size: 13pt;
-  color: #000000;
+  color: #ffffff;
 }
 
 .center_text {
@@ -68,14 +87,14 @@ body {
 }
 
 #div {
-  font-family: 'Caslon', sans-serif;
+  font-family: 'de-walpergens-pica', sans-serif;
   font-size: 13pt;
-  color: #000000;
+  color: #ffffff;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Clarendon', 'Playfair Display', serif;
-  color: #000000;
+  font-family: 'pulpo-rust-75', 'Playfair Display', serif;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
@@ -84,13 +103,17 @@ h1, h2 {
 }
 
 p {
-  font-family: 'Caslon', sans-serif;
+  font-family: 'de-walpergens-pica', sans-serif;
   font-size: 13pt;
-  color: #000000;
+  color: #ffffff;
 }
 
 a, input[type="submit"] {
   font-weight: bold;
+  color: #ffffff;
+}
+
+select {
   color: #000000;
 }
 
@@ -99,9 +122,9 @@ a, input[type="submit"] {
   border-style: solid;
   border-color: #000000;
   padding: 10px;
-  background-color: #a5a38b;
+  background-color: #ffffffa6;
   color: #000000;
-  font-family: 'Caslon', 'Lato', serif;
+  font-family: 'de-walpergens-pica', 'Lato', serif;
   text-transform: uppercase;
   text-decoration: none;
   margin-top: 20px;
