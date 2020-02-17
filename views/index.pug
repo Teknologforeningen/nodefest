@@ -1,0 +1,56 @@
+﻿extends layout
+
+block content
+  .center_text
+    h1 Välkommen!
+  p Teknologföreningen firar sin 148:e årsfest lördagen den 21 mars 2020 och vi önskar Er hjärtligt välkommen att fira den med oss.
+
+  p Festligheterna inleds med solenn akt och fördrink i A-vingen av Kandidatcentret på Aalto-universitetets campus i Otnäs där det finns möjlighet att framföra hälsningar till jubilaren.
+
+  p Efter solenna akten och fördrinken fortsätter direkt med banketten på Urdsgjallar.
+
+  p Klädsel: Högtidsdräkt med akademiska hederstecken.
+
+  p Vi önskar alla gäster en trevlig och minnesrik fest!
+
+  p Anmälan öppnar den 17 februari för inbjudna gäster och den 26 februari för övriga. Anmälan stänger den 7 mars, eller när alla platser är fyllda.
+
+  p Anmälningar som kommer in efter att anmälningstiden tagit slut hamnar på vår reservlista. Vi tar kontakt med er specifikt om ni ryms med.
+
+  .center_text
+    a.register_button(href='/register/') Anmälan
+    a.register_button(href='/list/') Deltagare
+
+  h2 Tidtabell
+  h4 21 mars 2020
+  #schedule
+    .row
+      .col-md-4 Solenn akt och Cocktail
+      .col-md-2 16.00 - 18:30
+      .col-md-6
+        | Kandidatcentret, A-vingen
+        br
+        | Otsvängen 1
+    .row
+      .col-md-4 Bankett
+      .col-md-2 19.00
+      .col-md-6
+        | Urdsgjallar
+        br
+        | Otsvängen 22
+    h4 22 mars 2020
+    .row
+      .col-md-4 Sillfrukost
+      .col-md-2 12.00
+      .col-md-6
+        | Urdsgjallar
+        br
+        | Otsvängen 22
+  #div
+    | Vid frågor, kontakta årsfestmarskalkerna på 
+    a(href='mailto:arsfest@tf.fi') arsfest@tf.fi 
+    | eller
+    br
+    | Emmi Virtanen +358 50 581 5525
+    br
+    | Rickard Lindroos +358 45 679 4328

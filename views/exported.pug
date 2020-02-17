@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  .center_text
+    h1 Deltagare
+  p
+    ol
+      each participant in data
+        li= participant.first_name + " " + participant.last_name
