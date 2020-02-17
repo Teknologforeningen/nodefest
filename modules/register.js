@@ -49,7 +49,7 @@ function countSum(req) {
 }
 
 function countReferenceNumber(req, count) {
-  req.body.reference = refnum.create(148000 + +count);
+  req.body.reference = refnum.create(147000 + +count);
 }
 
 exports.saveParticipant = function(req, res) {
